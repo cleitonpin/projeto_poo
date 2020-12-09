@@ -13,32 +13,32 @@ import javax.persistence.Table;
 public class Carga {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "carga_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "carga_id", nullable = false)
     private Long id;
 
-    @Column(name = "endereco")
+    @Column(name = "endereco", nullable = false)
     private String endereco;
 
-    @Column(name = "altura")
+    @Column(name = "altura", nullable = false)
     private Double altura;
 
-    @Column(name = "largura")
+    @Column(name = "largura", nullable = false)
     private Double largura;
 
-    @Column(name = "comprimento")
+    @Column(name = "comprimento", nullable = false)
     private Double comprimento;
 
-    @Column(name = "peso")
+    @Column(name = "peso", nullable = false)
     private Double peso;
 
-    @Column(name = "tipo_carga")
+    @Column(name = "tipo_carga", nullable = false)
     private String tipo_carga;
 
-    @Column(name = "quantidade")
+    @Column(name = "quantidade", nullable = false)
     private Integer quantidade;
 
-    @Column(name = "valor")
+    @Column(name = "valor", nullable = false)
     private Double valor;
 
     public Long getId() {

@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Users> GetById(@PathVariable(value = "id") long id) {
+    public ResponseEntity<Users> GetById(@PathVariable(value = "id") Long id) {
         Optional<Users> user = _UserRepository.findById(id);
 
         if (user.isPresent())
@@ -43,7 +43,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{id}", method =  RequestMethod.PUT)
-    public ResponseEntity<Users> Put(@PathVariable(value = "id") long id, @RequestBody Users newUser)
+    public ResponseEntity<Users> Put(@PathVariable(value = "id") Long id, @RequestBody Users newUser)
     {
         Optional<Users> oldUser = _UserRepository.findById(id);
         if(oldUser.isPresent()){
@@ -57,7 +57,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Object> Delete(@PathVariable(value = "id") long id)
+    public ResponseEntity<Object> Delete(@PathVariable(value = "id") Long id)
     {
         Optional<Users> user = _UserRepository.findById(id);
         if(user.isPresent()){
