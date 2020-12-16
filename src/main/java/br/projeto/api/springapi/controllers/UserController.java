@@ -69,4 +69,16 @@ public class UserController {
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    public List<Users> Login(@RequestBody Users users)
+    {
+        List<Users> user = _UserRepository.findByUsernameAndSenha(users.getUsername(), users.getSenha());
+
+        if (user.size > 0) {
+            return user;
+        }
+      
+        return null;        
+    }
 }

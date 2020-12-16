@@ -8,5 +8,5 @@ import br.projeto.api.springapi.entity.Users;
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long>{
 
-    
+    List<Users> findByUsernameAndSenha(String username, String senha);
 }
