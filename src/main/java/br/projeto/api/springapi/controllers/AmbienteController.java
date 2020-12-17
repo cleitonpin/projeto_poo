@@ -26,12 +26,12 @@ public class AmbienteController {
 
     @RequestMapping(value = "/empresa/ambiente", method = RequestMethod.GET)
     public List<Ambiente> Get() {
-        return _AmbienteRepository;.findAll();
+        return _AmbienteRepository.findAll();
     }
 
     @RequestMapping(value = "/empresa/ambiente/{id}", method = RequestMethod.GET)
     public ResponseEntity<Ambiente> GetById(@PathVariable(value = "id") long id) {
-        Optional<Ambiente> ambiente = _AmbienteRepository;.findById(id);
+        Optional<Ambiente> ambiente = _AmbienteRepository.findById(id);
 
         if (ambiente.isPresent())
             return new ResponseEntity<Ambiente>(ambiente.get(), HttpStatus.OK);
@@ -41,18 +41,18 @@ public class AmbienteController {
 
     @RequestMapping(value = "/empresa/ambiente", method = RequestMethod.POST)
     public Ambiente Post(@RequestBody Ambiente ambiente) {
-        return _AmbienteRepository;.save(ambiente);
+        return _AmbienteRepository.save(ambiente);
     }
 
     @RequestMapping(value = "/empresa/ambiente/{id}", method =  RequestMethod.PUT)
     public ResponseEntity<Ambiente> Put(@PathVariable(value = "id") long id, @RequestBody Ambiente newAmbiente)
     {
-        Optional<Ambiente> oldAmbiente = _AmbienteRepository;.findById(id);
+        Optional<Ambiente> oldAmbiente = _AmbienteRepository.findById(id);
         if(oldAmbiente.isPresent()){
             Ambiente ambiente = oldAmbiente.get();
             ambiente.setNome(newAmbiente.getNome());
             ambiente.setCnpj(newAmbiente.getCnpj());
-            _AmbienteRepository;.save(ambiente);
+            _AmbienteRepository.save(ambiente);
             return new ResponseEntity<Ambiente>(ambiente, HttpStatus.OK);
         }
         else
@@ -62,9 +62,9 @@ public class AmbienteController {
     @RequestMapping(value = "/empresa/ambiente/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Object> Delete(@PathVariable(value = "id") long id)
     {
-        Optional<Ambiente> ambiente = _AmbienteRepository;.findById(id);
+        Optional<Ambiente> ambiente = _AmbienteRepository.findById(id);
         if(ambiente.isPresent()){
-            _AmbienteRepository;.delete(ambiente.get());
+            _AmbienteRepository.delete(ambiente.get());
             return new ResponseEntity<>(HttpStatus.OK);
         }
         else

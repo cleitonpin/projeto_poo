@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.projeto.api.springapi.entity.Carga;
 import br.projeto.api.springapi.repository.CargaRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 public class CargaController {
     @Autowired

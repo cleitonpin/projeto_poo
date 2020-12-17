@@ -16,7 +16,7 @@ public class Transportadora {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "nome", nullable = false)
@@ -32,7 +32,7 @@ public class Transportadora {
     private String empresa_atual;
 
     @Column(name = "ctes_por_mes", nullable = false)
-    private Integer ctes_por_mes;
+    private String ctes_por_mes;
 
     @Column(name= "tipo_empresa", nullable = false)
     private String tipo_empresa;
@@ -77,13 +77,7 @@ public class Transportadora {
         this.empresa_atual = empresaAtual;
     }
 
-    public Integer getCtes_por_mes() {
-        return ctes_por_mes;
-    }
 
-    public void setCtes_por_mes(Integer ctes_por_mes) {
-        this.ctes_por_mes = ctes_por_mes;
-    }
 
     public String getTipo_empresa() {
         return tipo_empresa;
@@ -92,6 +86,14 @@ public class Transportadora {
     public void setTipo_empresa(String tipo_empresa) {
         this.tipo_empresa = tipo_empresa;
     }
+
+	public String getCtes_por_mes() {
+		return ctes_por_mes;
+	}
+
+	public void setCtes_por_mes(String ctes_por_mes) {
+		this.ctes_por_mes = ctes_por_mes;
+	}
 
   
     

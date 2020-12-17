@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.projeto.api.springapi.entity.Users;
 import br.projeto.api.springapi.repository.UserRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin    
 @RestController
 public class UserController {
     @Autowired
@@ -71,11 +71,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
-    public List<Users> Login(@RequestBody Users users)
+    public Optional<Users> Login(@RequestBody Users users)
     {
-        List<Users> user = _UserRepository.findByUsernameAndSenha(users.getUsername(), users.getSenha());
+        Optional<Users> user = _UserRepository.findByUsernameAndSenha(users.getUsername(), users.getSenha());
 
-        if (user.size > 0) {
+        if (user.isPresent()) {
             return user;
         }
       

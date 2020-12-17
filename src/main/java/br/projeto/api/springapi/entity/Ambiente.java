@@ -40,7 +40,7 @@ public class Ambiente {
         this.nome = nome;
     }
 
-    public Double getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 

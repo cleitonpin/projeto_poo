@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.projeto.api.springapi.entity.EmpresaTransporte;
 import br.projeto.api.springapi.repository.EmpresaTransporteRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 public class EmpresaTransporteController {
     @Autowired
