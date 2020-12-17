@@ -49,10 +49,15 @@ public class UserController {
     {
         Optional<Users> oldUser = _UserRepository.findById(id);
         if(oldUser.isPresent()){
-            Users user = oldUser.get();
-            user.setNome(newUser.getNome());
-            _UserRepository.save(user);
-            return new ResponseEntity<Users>(user, HttpStatus.OK);
+            oldUser.map(news -> {
+                news.setUsername(newUser.getUsername());
+                news.setNome(newUser.getNome());
+                
+                _UserRepository.save(user);
+                return new ResponseEntity<Users>(user, HttpStatus.OK);
+            })
+
+
         }
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

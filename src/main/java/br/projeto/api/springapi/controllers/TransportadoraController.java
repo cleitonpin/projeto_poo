@@ -49,10 +49,18 @@ public class TransportadoraController {
     {
         Optional<Transportadora> oldTransportadora = _TransportadoraRepository.findById(id);
         if(oldTransportadora.isPresent()){
-            Transportadora transportadora = oldTransportadora.get();
-            transportadora.setNome(newTransportadora.getNome());
-            _TransportadoraRepository.save(transportadora);
-            return new ResponseEntity<Transportadora>(transportadora, HttpStatus.OK);
+
+            oldTransportadora.map(news -> {
+                news.setNome(newTransportadora.get());
+                news.setEmail(newTransportadora.getEmail());
+                news.setTelefone(newTransportadora.getTelefone());
+                news.setEmpresa_atual(newTransportadora.getEmpresa_atual());
+                news.setCtes_por_mes(newTransportadora.getCtes_por_mes());
+                news.setTipo_empresa(newTransportadora.getTipo_empresa());
+                _TransportadoraRepository.save(transportadora);
+                return new ResponseEntity<Transportadora>(transportadora, HttpStatus.OK);
+            })
+
         }
         else
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
